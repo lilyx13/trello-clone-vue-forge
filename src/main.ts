@@ -1,10 +1,16 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
-import "@/assets/base.css";
-import "@progress/kendo-theme-default/dist/all.css";
+import { Inkline, components } from "@inkline/inkline";
+
+import "@/assets/inkline.scss"
+import "@/assets/tailwind.css";
 
 const app = createApp(App);
+
+app.use(Inkline, { 
+  components
+});
 
 app.use(router);
 
