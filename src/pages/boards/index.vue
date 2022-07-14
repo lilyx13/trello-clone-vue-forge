@@ -32,7 +32,13 @@ const staticBoards = [
 ]
 </script>
 <template>
-<main>
+<i-layout>
+  <i-layout-header>
+    <h1>Boards</h1>
+  </i-layout-header>
+  <!-- main content goes here -->
+  <i-layout-content>
 
-</main>
+  </i-layout-content>
+</i-layout>
 </template>

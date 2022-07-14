@@ -4,8 +4,7 @@ import router from "./router";
 import { Inkline, components } from '@inkline/inkline';
 
 import '@inkline/inkline/inkline.scss';
-import "@/assets/inkline.scss"
-import "@/assets/tailwind.css";
+import "@/assets/main.scss"
 
 const app = createApp(App);
 
