@@ -1,8 +1,31 @@
-<!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
 
 // import type { Board } from "@/types";
+// teseting out the counter store here
+import { storeToRefs } from "pinia";
+import { useCounterStore } from "@/store/useCounter"
 
+
+const splendid = useCounterStore();
+
+const { counter, name } = storeToRefs(splendid);
+
+function add(value: number) {
+  splendid.$patch({
+    counter: counter.value + value
+  })
+}
+function reset() {
+  splendid.$reset();
+}
+splendid.$subscribe((mutation, state) => {
+  console.log("mutation", mutation);
+  console.log("state", state)
+})
+
+function randoClear() {
+  splendid.$state = { counter: 500, name: "Lucifer"}
+}
 const staticBoards = [
   {
     id: "1",
@@ -49,8 +72,13 @@ const staticBoards = [
         <!-- cards go here -->
         </div>
       </section>
-      <section>
-        <fast-button appearance="accent">Add new + </fast-button>
+      <!-- Testing out the counter store here -->
+      <section class="w-full mx-auto flex flex-col gap-2 items-center">
+        <h2 class="text-3xl font-bold"> {{ counter }}</h2>
+        <fast-button appearance="accent" @click="splendid.addOne()" class="mx-2 px-4 max-w-fit">Add new + </fast-button>
+        <p class="text-2xl font-bold">{{ name }}</p>
+        <fast-button appearance="primary" @click="reset" class="mx-2 px-4 max-w-fit">Reset </fast-button>
+        <fast-button appearance="accent" @click="randoClear" class="mx-2 px-4 max-w-fit">Rando Clear</fast-button>
       </section>
     </section>
   </main>
