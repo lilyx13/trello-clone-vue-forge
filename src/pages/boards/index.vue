@@ -5,6 +5,7 @@ import type { Board } from "@/types";
 function createNewBoard() {
   alert("new board!")
 }
+
 const staticBoards = [
   {
     id: "1",
@@ -37,12 +38,11 @@ const staticBoards = [
 </script>
 
 <template>
-  <i-layout>
-    <i-layout-header>
+    <header>
       <h1 class="_text:center">Boards</h1>
-    </i-layout-header>
+    </header>
     <!-- main content goes here -->
-    <i-layout-content>
+    <i-container>
       <i-row class="_margin-x:1/3">
         <i-column v-for="board in staticBoards" :key="board.id" class="_background:primary-05 _margin-x:1/3">
           <header>
@@ -54,8 +54,7 @@ const staticBoards = [
           <button @click="createNewBoard">New Board + </button>
         </i-column>
       </i-row>
-    </i-layout-content>
-  </i-layout>
+    </i-container>
 </template>
 <style>
 header {
