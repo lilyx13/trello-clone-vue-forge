@@ -18,7 +18,7 @@ function add(value: number) {
 function reset() {
   splendid.$reset();
 }
-splendid.$subscribe((mutation, state) => {
+splendid.$subscribe((mutation: any, state: any) => {
   console.log("mutation", mutation);
   console.log("state", state)
 })
